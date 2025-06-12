@@ -8,9 +8,15 @@ const style = {
     },
     summaryCard: {
         display: 'flex',
-        border: '2px solid blue',
+        border: '2px solid',
+        borderColor: 'transparent',
         borderRadius: '10px',
         overflow: 'hidden',
+        boxShadow: '0 2px 2px rgba(0, 0, 0, 0.1)',
+        transition: 'border-color 0.3s ease',
+        '&:hover': {
+            borderColor: 'rgb(70, 70, 152)',
+        },
     },
     date: {
         backgroundColor: '#E0E0FF',
