@@ -1,17 +1,16 @@
 const style = {
-    meetingSummaryCardContainer: {
+    summaryCardContainer: {
         display: 'flex',
         flexDirection: 'column',
         marginTop: '100px',
         marginLeft: '250px',
         marginRight: '20px'
     },
-    meetingSummaryCard: {
+    summaryCard: {
         display: 'flex',
         border: '2px solid blue',
         borderRadius: '10px',
         overflow: 'hidden',
-        width: '300px',
     },
     date: {
         backgroundColor: '#E0E0FF',
