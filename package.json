@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.14.0",
+    "@mlc-ai/web-llm": "^0.2.79",
     "@mui/material": "^7.1.1",
+    "@rcb-plugins/llm-connector": "^0.3.2",
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
     "isbot": "^5.1.27",
     "mui": "^0.0.1",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
+    "react-chat-widget": "^3.1.4",
+    "react-chatbotify": "^2.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.5.3"
   },

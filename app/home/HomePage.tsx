@@ -3,7 +3,12 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material';
 import MeetingDetails from "../details/MeetingDetails";
 import SearchBar from "../search/SearchBar";
+import Chat from './Chat';
 const Homepage = () => {
+    const handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`);
+    // Now send the message throught the backend API
+  };
     const meetingDetails = [
         {
             meetingDate: "April 5, 2025",
@@ -45,6 +50,7 @@ const Homepage = () => {
                 <MeetingDetails meetings={meetingDetails} />
                 {/* Main content area */}
             </Box>
+            <Chat/>
         </div>
     );
 };
