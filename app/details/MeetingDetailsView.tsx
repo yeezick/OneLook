@@ -22,9 +22,8 @@ const MeetingDetailView = ({ meeting, onClose }) => (
         return (
             <>
             <Typography variant="h6" fontWeight={'bold'} fontSize={'16px'}>{meetingNote.topic}</Typography>
-            <List sx = {{listStyleType: 'disc', pl: 2,'& .MuiListItem-root': { display: 'list-item', },}}>
               <ListItem>{meetingNote.summary}</ListItem>
-            </List>
+           
             </>
         )
         })}
