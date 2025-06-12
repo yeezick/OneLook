@@ -49,6 +49,14 @@ const style = {
         margin: '2px 0',
         textAlign: 'center',
     },
+    headers: {
+        fontWeight: 'bold',
+        lineHeight: '60px'
+    },
+    meetingNotesTopic: {
+        fontWeight: 'bold',
+        fontSize: '16px'
+    }
 };
 export default style;
 
