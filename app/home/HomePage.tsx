@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import MeetingDetails from "../details/MeetingDetails";
 import SearchBar from "../search/SearchBar";
+import Chat from './Chat';
 const Homepage = () => {
   const meetingDetails = [{
     "summary": "The product launch prep is on schedule across marketing, engineering, and customer support. Minor risk noted with the third-party payment API, with monitoring and contingencies in place. Final performance tests and support team trainings to complete this week. The go/no-go decision meeting is set for Monday.",
@@ -92,6 +93,7 @@ const Homepage = () => {
           {/* Main content area */}
         </Grid>
       </Paper>
+      <Chat/>
     </div>
   );
 };
