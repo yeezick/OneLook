@@ -15,9 +15,9 @@ import SearchBar from "../search/SearchBar";
 import Chat from './Chat';
 const Homepage = () => {
   const meetingDetails = [{
-    "summary": "The product launch prep is on schedule across marketing, engineering, and customer support. Minor risk noted with the third-party payment API, with monitoring and contingencies in place. Final performance tests and support team trainings to complete this week. The go/no-go decision meeting is set for Monday.",
-    "title": "Product Launch Sync – Status Update and Risk Review",
-    "date": "June 12th 2025",
+    "meetingTime": "2025-06-12T16:51:21.67249",
+    "summary": "The meeting covered status updates for the upcoming product launch. All teams are on track: marketing content is ready, engineering has cleared QA with only performance testing remaining, and customer support materials are in place with training scheduled. The main risk identified is the potential downtime of a third-party payment API, for which monitoring and a fallback plan are active. Action items include preparing pre-written user communications and sending out the go/no-go meeting agenda. The team is aligned for a smooth launch.",
+    "title": "Product Launch Sync – Status and Risk Review",
     "attendees": [
         "Sarah (Project Manager)",
         "David (Marketing Lead)",
@@ -26,48 +26,52 @@ const Homepage = () => {
     ],
     "meetingNotes": [
         {
-            "topic": "Marketing Update",
-            "summary": "Marketing content and email campaigns are on track for launch; social calendar is finalized."
+            "topic": "Status Updates",
+            "summary": "All teams gave quick status updates. Marketing is ready with content and campaigns. Engineering has passed QA, only final performance test left. Customer success has documented materials and planned training."
         },
         {
-            "topic": "Engineering Update",
-            "summary": "Engineering release candidate has passed QA; final performance testing underway with no expected blockers."
+            "topic": "Risk Management",
+            "summary": "Potential risk if third-party payment API is down; fallback plan in place. Monitoring ongoing. Communication plan to be prepared for possible downtime."
         },
         {
-            "topic": "Customer Support Update",
-            "summary": "Customer support FAQ and onboarding video completed; training sessions for support team scheduled for Friday."
-        },
-        {
-            "topic": "Risks and Contingency",
-            "summary": "Risk of third-party payment API downtime identified; monitoring in place and fallback ready."
-        },
-        {
-            "topic": "Logistics",
-            "summary": "Go/no-go meeting set for Monday at 10 a.m; agenda to be distributed by Sarah."
+            "topic": "Next Steps",
+            "summary": "Go/No-Go meeting scheduled for Monday; agenda to be shared by Sarah."
         }
     ],
     "actionItems": [
         {
-            "title": "Prepare contingency user communication",
-            "description": "Prepare a user communication template in case the payment API has downtime during launch.",
+            "title": "Monitor Payment API and Prepare Fallback",
+            "description": "Continue to monitor the payment API status and be ready to activate the fallback if required during launch.",
+            "assignee": "Priya"
+        },
+        {
+            "title": "Prepare Communication for Potential Payment API Downtime",
+            "description": "Draft a pre-written communication for users in case the payment API experiences downtime at launch.",
             "assignee": "David"
         },
         {
-            "title": "Send go/no-go meeting agenda",
-            "description": "Send agenda for the Monday go/no-go meeting to the team.",
+            "title": "Send Go/No-Go Meeting Agenda",
+            "description": "Send the agenda for Monday's go/no-go meeting to all attendees.",
             "assignee": "Sarah"
         }
     ],
     "jiras": [
         {
-            "title": "Payment API Fallback System",
-            "description": "Implement and monitor the fallback solution for payment API outages during launch.",
+            "title": null,
+            "description": "Implement, test and document the fallback mechanism for payment handling, and ensure monitoring is in place for the third-party payments API.",
             "assignee": "Priya",
-            "acceptanceCriteria": "1. Payment system automatically switches to fallback if main API is unavailable. 2. Team is alerted of API downtime. 3. Monitoring of the third-party API status is logged."
+            "acceptanceCriteria": "The payment fallback is ready and can be triggered if the third-party API is down during launch.",
+            "url": "https://onelookmeeting.atlassian.net/rest/api/3/issue/10009"
+        },
+        {
+            "title": null,
+            "description": "Create a prepared communication (email/social/message) for users in the event of payment API downtime, enabling fast updates if necessary.",
+            "assignee": "David",
+            "acceptanceCriteria": "Communication template is ready, reviewed, and available before launch. Channels for quick dissemination are identified.",
+            "url": "https://onelookmeeting.atlassian.net/rest/api/3/issue/10010"
         }
     ]
-},
-  ];
+}];
 
   return (
     <div>
