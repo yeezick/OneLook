@@ -33,9 +33,9 @@ const MeetingDetailView = ({ meeting, onClose }) => (
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Task</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell>Assignee</TableCell>
+            <TableCell style={{fontWeight: 'bold'}}>Task</TableCell>
+            <TableCell style={{fontWeight: 'bold'}}>Description</TableCell>
+            <TableCell style={{fontWeight: 'bold'}}>Assignee</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
