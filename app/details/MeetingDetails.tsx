@@ -41,12 +41,10 @@ const MeetingDetails = ({ meetings }) => {
                 ))}
             </Grid>
             {selectedMeeting && (
-                <Box style={styles.meetingSummaryCard}>
-                    <MeetingDetailView
-                        meeting={selectedMeeting}
-                        onClose={handleCloseDetailView}
-                    />
-                </Box>
+                <MeetingDetailView
+                    meeting={selectedMeeting}
+                    onClose={handleCloseDetailView}
+                />
             )}
         </Box>
     );
