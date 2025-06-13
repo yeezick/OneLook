@@ -7,8 +7,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import styles from "./styles";
-import JiraStories, { SectionTitle } from "~/jira/JiraSuggestions";
+import JiraStories from "~/jira/JiraSuggestions";
+import styles from "~/utils/styles";
+import { SectionTitle } from "~/utils/components";
 
 const MeetingDetailView = ({ meeting, onClose }) => (
   <Box sx={(theme) => ({ p: 2 })}>

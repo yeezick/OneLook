@@ -1,11 +1,4 @@
-import {
-  CheckBoxOutlined,
-  Code,
-  ExpandMore,
-  InsertLink,
-  Search,
-  Subject,
-} from "@mui/icons-material";
+import { ExpandMore, InsertLink } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
@@ -20,7 +13,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import styles from "../details/styles";
+import { SectionTitle } from "~/utils/components";
 
 const JiraStories = () => {
   // Fetch suggestions
@@ -54,34 +47,6 @@ const JiraStories = () => {
         ))}
       </Box>
     </Box>
-  );
-};
-
-export const SectionTitle = ({ title, section }) => {
-  const sectionIcons = {
-    actions: <CheckBoxOutlined fontSize="large" />,
-    jiras: <Code fontSize="large" />,
-    notes: <Subject fontSize="large" />,
-    overview: <Search fontSize="large" />,
-  };
-
-  const icon = sectionIcons[section];
-
-  return (
-    <Typography
-      variant="h6"
-      sx={{
-        alignItems: "center",
-        display: "flex",
-        fontWeight: "bold",
-        gap: "5px",
-        lineHeight: "60px",
-      }}
-      style={styles.headers}
-    >
-      <div>{icon}</div>
-      {title}
-    </Typography>
   );
 };
 

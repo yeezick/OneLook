@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Grid, Skeleton } from "@mui/material";
 import MeetingDetailView from "./MeetingDetailsView";
-import styles from "./styles";
+import styles from "~/utils/styles";
 const MeetingDetails = ({ meetings }) => {
   const meetingLists = meetings.map((meeting) => ({
     ...meeting,
