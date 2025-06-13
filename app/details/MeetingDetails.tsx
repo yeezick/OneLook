@@ -16,6 +16,11 @@ const MeetingDetails = ({ meetings }) => {
     setSelectedMeeting(null);
   };
 
+  const formatTime = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); // e.g., "09:30 AM"
+  };
+
   return (
     <>
       <Grid size={4} spacing={2} container>
@@ -45,8 +50,9 @@ const MeetingDetails = ({ meetings }) => {
                     <div style={styles.summary}>{meeting.meetingSummary}</div>
                   </div>
                   <div style={styles.tags}>
-                    <div style={styles.tag}>{meeting.startTime}</div>
-                    <div style={styles.tag}>{meeting.endTime}</div>
+                    <div style={styles.tag}>
+                      {formatTime(meeting.meetingTime)}
+                    </div>
                   </div>
                 </div>
               </Box>
