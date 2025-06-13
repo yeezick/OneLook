@@ -1,26 +1,33 @@
+import { ExpandMore, InsertLink } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Box,
-  TextField,
+  Link,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
-import { emptyJiraform } from "~/utils/constants";
 
-const JiraSuggestions = () => {
+const JiraStories = () => {
   // Fetch suggestions
-  const suggestions = [
+  const stories = [
     {
-      title: "Integrate with OpenAi",
-      description: "Lorem ipsum many things wow",
-      acceptanceCriteria: "More lorem ipsum until forever and never",
+      title: "Complete performance testing",
+      description:
+        "Complete performance testing of release candidate and confirm fallback procedures for payment API.",
+      assignee: "Priya",
+      acceptanceCriteria:
+        "Release candidate passes all QA and performance tests with fallback procedure confirmed for payment API.",
+      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10007",
     },
     {
-      title: "Connect to Jira API",
-      description: "Even more things what the heck",
-      acceptanceCriteria: "Lorem ipsum will never end!!!!!!",
+      title: "Publish customer support",
+      description:
+        "Publish customer support FAQ, distribute onboarding video and deliver internal training session.",
+      assignee: "Alex",
+      acceptanceCriteria:
+        "FAQ doc available, onboarding video accessible, and training delivered before launch.",
+      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10008",
     },
   ];
 
@@ -30,60 +37,68 @@ const JiraSuggestions = () => {
         Jira Suggestions
       </Typography>
       <Box>
-        {suggestions.map((suggestion) => (
-          <Suggestion jiraFields={suggestion} />
+        {stories.map((story) => (
+          <Story story={story} />
         ))}
       </Box>
     </Box>
   );
 };
 
-const Suggestion = ({ jiraFields }) => {
-  const [formFields, setFormFields] = useState(jiraFields);
-  const { title } = formFields;
+const Story = ({ story }) => {
+  const { assignee, description, title, acceptanceCriteria, url } = story;
 
   return (
     <Accordion>
-      <AccordionSummary>
-        <Typography variant="h3">{title}</Typography>
+      <AccordionSummary
+        sx={{ marginBottom: "10px", marginTop: "10px" }}
+        expandIcon={<ExpandMore />}
+      >
+        <Typography variant="h6">{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <JiraForm formFields={formFields} setFormFields={setFormFields} />
+        <Box id="body">
+          <BodyStoryField label={"Description"} value={description} />
+          <BodyStoryField
+            label={"Acceptance Criteria"}
+            value={acceptanceCriteria}
+          />
+        </Box>
+        <Box id="footer">
+          <FooterStoryField label={"Assignee"} value={assignee} />
+          <JiraLink url={url} />
+        </Box>
       </AccordionDetails>
     </Accordion>
   );
 };
 
-const JiraForm = ({ formFields, setFormFields }) => {
-  const handleFieldChange = (e) => {
-    console.log("textfield", e);
-  };
-
+const JiraLink = ({ url }) => {
   return (
-    <form>
-      <FormTextField
-        id="jira-title"
-        label="Title"
-        name="title"
-        value={formFields.title}
-        handleFieldChange={handleFieldChange}
-      />
-    </form>
+    <Link href={url} rel="noopener" target="_blank">
+      <InsertLink />
+    </Link>
   );
 };
 
-const FormTextField = ({ id, label, name, handleFieldChange, value }) => {
+const BodyStoryField = ({ label, value }) => {
   return (
-    <Box>
-      <TextField
-        id={id}
-        label={label}
-        name={name}
-        onChange={handleFieldChange}
-        value={value}
-      />
+    <Box sx={{ display: "flex", alignItems: "center", gap: "15px" }}>
+      <Typography sx={{ width: "175px" }} variant="subtitle1">
+        {label}
+      </Typography>
+      <Typography variant="body2">{value}</Typography>
     </Box>
   );
 };
 
-export default JiraSuggestions;
+const FooterStoryField = ({ label, value }) => {
+  return (
+    <Box>
+      <Typography variant="h6">{label}</Typography>
+      <Typography variant="body2">{value}</Typography>
+    </Box>
+  );
+};
+
+export default JiraStories;
