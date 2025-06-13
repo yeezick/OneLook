@@ -5,8 +5,15 @@ import {
   AccordionSummary,
   Box,
   Link,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
   Typography,
 } from "@mui/material";
+import { SectionTitle } from "~/utils/components";
 
 const JiraStories = () => {
   // Fetch suggestions
@@ -33,10 +40,8 @@ const JiraStories = () => {
 
   return (
     <Box>
-      <Typography variant="h2" gutterBottom>
-        Jira Suggestions
-      </Typography>
       <Box>
+        <SectionTitle title="Jira Stories" section="jiras" />
         {stories.map((story) => (
           <Story story={story} />
         ))}
@@ -45,28 +50,51 @@ const JiraStories = () => {
   );
 };
 
-const Story = ({ story }) => {
-  const { assignee, description, title, acceptanceCriteria, url } = story;
-
+const TextTable = ({ story }) => {
+  const { acceptanceCriteria, assignee, description, url } = story;
   return (
-    <Accordion>
-      <AccordionSummary
-        sx={{ marginBottom: "10px", marginTop: "10px" }}
-        expandIcon={<ExpandMore />}
+    <Box>
+      <TableContainer component={Paper}>
+        <Table aria-label="Table for Jira details">
+          <TableBody>
+            <StoryRow label="Description" body={description} />
+            <StoryRow label="Acceptance Criteria" body={acceptanceCriteria} />
+            <StoryRow label="Assignee" body={assignee} />
+            <StoryRow label="Jira link" body={url} />
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
+  );
+};
+
+const StoryRow = ({ label, body }) => {
+  return (
+    <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+      <TableCell
+        component="th"
+        scope="row"
+        sx={{ fontWeight: "bold", width: "175px" }}
       >
-        <Typography variant="h6">{title}</Typography>
+        {label}
+      </TableCell>
+      <TableCell>
+        {label === "Jira link" ? <JiraLink url={body} /> : <p>{body}</p>}
+      </TableCell>
+    </TableRow>
+  );
+};
+
+const Story = ({ story }) => {
+  const { title } = story;
+  return (
+    <Accordion disableGutters={true}>
+      <AccordionSummary expandIcon={<ExpandMore />}>
+        <Typography variant="subtitle2">{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Box id="body">
-          <BodyStoryField label={"Description"} value={description} />
-          <BodyStoryField
-            label={"Acceptance Criteria"}
-            value={acceptanceCriteria}
-          />
-        </Box>
-        <Box id="footer">
-          <FooterStoryField label={"Assignee"} value={assignee} />
-          <JiraLink url={url} />
+        <Box>
+          <TextTable story={story} />
         </Box>
       </AccordionDetails>
     </Accordion>
@@ -74,30 +102,15 @@ const Story = ({ story }) => {
 };
 
 const JiraLink = ({ url }) => {
+  const link = "Issue-" + url.substring(url.length - 5, url.length);
   return (
     <Link href={url} rel="noopener" target="_blank">
-      <InsertLink />
+      {link}
+      <InsertLink
+        fontSize="small"
+        sx={{ marginLeft: "7px", transform: "rotate(315deg)" }}
+      />
     </Link>
-  );
-};
-
-const BodyStoryField = ({ label, value }) => {
-  return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: "15px" }}>
-      <Typography sx={{ width: "175px" }} variant="subtitle1">
-        {label}
-      </Typography>
-      <Typography variant="body2">{value}</Typography>
-    </Box>
-  );
-};
-
-const FooterStoryField = ({ label, value }) => {
-  return (
-    <Box>
-      <Typography variant="h6">{label}</Typography>
-      <Typography variant="body2">{value}</Typography>
-    </Box>
   );
 };
 
