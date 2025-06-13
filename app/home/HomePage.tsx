@@ -1,14 +1,30 @@
 // src/Homepage.js
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, Paper, Grid } from "@mui/material";
 import MeetingDetails from "../details/MeetingDetails";
 import SearchBar from "../search/SearchBar";
 import Chat from "./Chat";
-import { mockMeetingDetails } from "~/utils/api-mock";
 
 const Homepage = () => {
-  const meetingDetails = mockMeetingDetails;
-  const [filteredMeetings, setFilteredMeetings] = useState(meetingDetails);
+  const [meetingDetails, setMeetingDetails] = useState([]);
+  const [filteredMeetings, setFilteredMeetings] = useState([]);
+
+  useEffect(() => {
+    // Replace with your actual API endpoint
+    fetch(
+      "http://hackathon.eba-xb6hdzdg.us-east-1.elasticbeanstalk.com/onelook/getMeetingDetails"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMeetingDetails(data);
+        setFilteredMeetings(data);
+      })
+      .catch((err) => {
+        // Handle error or set fallback data
+        setMeetingDetails([]);
+        setFilteredMeetings([]);
+      });
+  }, []);
 
   const handleFilter = (query) => {
     setFilteredMeetings(
@@ -42,7 +58,6 @@ const Homepage = () => {
               onFilter={handleFilter}
             />
           </Grid>
-
           <MeetingDetails meetings={filteredMeetings} />
         </Grid>
       </Paper>
