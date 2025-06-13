@@ -19,22 +19,40 @@ const JiraStories = () => {
   // Fetch suggestions
   const stories = [
     {
-      title: "Complete performance testing",
+      title: "Automate Jira Ticket Creation via API",
       description:
-        "Complete performance testing of release candidate and confirm fallback procedures for payment API.",
-      assignee: "Priya",
+        "Enable automated creation of Jira tickets based on meeting action items through the Jira API in the backend.",
+      assignee: "Salazar, Arturo",
       acceptanceCriteria:
-        "Release candidate passes all QA and performance tests with fallback procedure confirmed for payment API.",
-      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10007",
+        "Given meeting details in the app, when users choose to generate Jira tickets, then a Jira ticket should be created through the Jira API and its status should be viewable in the app.",
+      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10045",
     },
     {
-      title: "Publish customer support",
+      title: "Zoom Transcript Auto-Retrieval",
       description:
-        "Publish customer support FAQ, distribute onboarding video and deliver internal training session.",
-      assignee: "Alex",
+        "Implement automatic collection of Zoom meeting transcripts to be used in downstream processing.",
+      assignee: "Campbell, Spencer",
       acceptanceCriteria:
-        "FAQ doc available, onboarding video accessible, and training delivered before launch.",
-      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10008",
+        "Given a Zoom meeting has ended, when the transcript is available, the system should automatically retrieve and store it without manual intervention.",
+      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10046",
+    },
+    {
+      title: "AI Meeting Summary and Action Automation",
+      description:
+        "Integrate the processing of Zoom transcripts with OpenAI to generate useful meeting documentation and trigger Jira ticket automation.",
+      assignee: "Kartikeya Mishra",
+      acceptanceCriteria:
+        "Given a Zoom transcript, when it is processed by OpenAI, generate a meeting summary, a list of action items, and make API calls to create Jira tickets as appropriate.",
+      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10047",
+    },
+    {
+      title: "Frontend for Meeting History and Search",
+      description:
+        "Develop frontend features for viewing, browsing, and searching meeting history, summaries, and associated Jira tickets.",
+      assignee: "Eric",
+      acceptanceCriteria:
+        "Given past meetings and their associated data, when users access the UI, they should be able to browse and search past meeting summaries, notes, and Jira tickets.",
+      url: "https://onelookmeeting.atlassian.net/rest/api/3/issue/10048",
     },
   ];
 
