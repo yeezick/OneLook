@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.14.0",
+<<<<<<< HEAD
     "@mlc-ai/web-llm": "^0.2.79",
+=======
+    "@mui/icons-material": "^7.1.1",
+>>>>>>> 9cb099f (create skeleton story map and components)
     "@mui/material": "^7.1.1",
     "@rcb-plugins/llm-connector": "^0.3.2",
     "@react-router/node": "^7.5.3",
